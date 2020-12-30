@@ -10,13 +10,13 @@ const drawChart = (display, margin, element, data) => {
 
   const x = d3
     .scaleBand()
-    .domain(d3.range(data.length))
+    .domain(d3.range(data.length - 1))
     .range([margin, display.width - margin])
     .padding(0.1);
 
   const y = d3
     .scaleLinear()
-    .domain([d3.min(data, (d) => d.count), d3.max(data, (d) => d.count)])
+    .domain([d3.min(data, (d) => d.total), d3.max(data, (d) => d.total)])
     .range([display.height - margin, margin]);
 
   svg
@@ -24,9 +24,9 @@ const drawChart = (display, margin, element, data) => {
     .data(data)
     .join('rect')
     .attr('x', (d, i) => x(i))
-    .attr('y', (d, i) => y(d.count))
+    .attr('y', (d, i) => y(d.total))
     .attr('width', x.bandwidth())
-    .attr('height', (d) => y(0) - y(d.count))
+    .attr('height', (d) => y(0) - y(d.total))
     .attr('fill', 'royalblue');
 
   svg
