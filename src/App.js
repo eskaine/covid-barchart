@@ -41,10 +41,10 @@ function App() {
 
   const fetchData = async () => {
     try {
-      // const res = await axios.get(process.env.REACT_APP_DATA_API);
-      // if (res.status === 200) {
-      //   setCovidData(weeklyData(res.data.data));
-      // }
+      const res = await axios.get(process.env.REACT_APP_DATA_API);
+      if (res.status === 200) {
+        setCovidData(weeklyData(res.data.data));
+      }
     } catch (error) {}
   };
 
@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Content />
+      <Content data={covidData} />
       <Container maxWidth="md" component="footer" className={classes.footer}>
         <Box mt={5}>
           <Copyright />
