@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 import * as d3 from 'd3';
 
 function Content({ data }) {
@@ -59,8 +60,11 @@ function Content({ data }) {
   }, [data]);
 
   return (
-    <Container>
-      <div id="barchart" className="chart"></div>
+    <Container className="chart">
+      <Typography variant="h4" component="h4" align="center">
+        Confirmed Covid Cases - Weekly (Past 1 Year)
+      </Typography>
+      <div id="barchart"></div>
     </Container>
   );
 }

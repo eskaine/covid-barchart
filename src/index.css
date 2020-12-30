@@ -11,5 +11,6 @@ code {
 }
 
 .chart {
-  border: 1px solid black;
+  padding-top: 5em;
+  /* border: 1px solid black; */
 }
