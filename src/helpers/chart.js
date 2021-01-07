@@ -10,7 +10,7 @@ const drawChart = (display, margin, element, data, tip) => {
 
   const x = d3
     .scaleBand()
-    .domain(d3.range(data.length - 1))
+    .domain(d3.range(1, data.length - 1))
     .range([margin, display.width - margin])
     .padding(0.1);
 

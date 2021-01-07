@@ -5,7 +5,7 @@ function weeklyData(dataset) {
   let count = 0;
   let end = dataset[dataset.length - 1].date;
 
-  return dataset.reduce((newDataset, value) => {
+  return dataset.reduce((newDataset, value, i) => {
     let day = moment(value.date).isoWeekday();
 
     if (day === 7) {
@@ -23,7 +23,7 @@ function weeklyData(dataset) {
         {
           total,
           count,
-          week: moment(value.date).isoWeek(),
+          week: dataset.length / 7 - (newDataset.length + 1),
           start: value.date,
           end,
         },
