@@ -2,7 +2,6 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 function Tooltip({ data }) {
-  console.log(data);
   return (
     <div id="tooltip">
       <Typography variant="h6" align="center">

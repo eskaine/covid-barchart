@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import drawChart from '../helpers/chart';
 import Tooltip from './Tooltip';
 
-function Content({ data }) {
+function Content() {
   const [display] = useState({
     width: 1400,
     height: 700,
@@ -18,10 +18,8 @@ function Content({ data }) {
   };
 
   useEffect(() => {
-    if (data.length > 0) {
-      drawChart(display, margin, '#barchart', data, tip);
-    }
-  }, [data]);
+    drawChart(display, margin, '#barchart', tip);
+  }, []);
 
   return (
     <Container className="chart">

@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Navbar from './components/Navbar';
 import Content from './components/Content';
-import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
-import { weeklyData } from './helpers/func';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -24,25 +22,11 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [covidData, setCovidData] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const res = await axios.get(process.env.REACT_APP_DATA_API);
-      if (res.status === 200) {
-        setCovidData(weeklyData(res.data.data));
-      }
-    } catch (error) {}
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <>
       <Navbar />
-      <Content data={covidData} />
+      <Content />
       <Container maxWidth="md" component="footer" className={classes.footer}>
         <Box mt={5}>
           <Typography variant="body2" color="textSecondary" align="center">
